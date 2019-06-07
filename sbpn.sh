@@ -2,6 +2,8 @@ if [ -f /sys/class/power_supply/BAT1/power_now ]; then
     # check if the status of the battery charging
     if [ $(cat /sys/class/power_supply/BAT1/status) == "Charging" ]; then
         STATUS="+";
+    elif [ $(cat /sys/class/power_supply/BAT1/status) == "Full" ]; then
+        STATUS="";
     else 
         STATUS="-";
     fi
@@ -15,6 +17,8 @@ if [ -f /sys/class/power_supply/BAT1/power_now ]; then
 else
     if [ $(cat /sys/class/power_supply/BAT0/status) == "Charging" ]; then
         STATUS="+";
+    elif [ $(cat /sys/class/power_supply/BAT0/status) == "Full" ]; then
+        STATUS="";
     else 
         STATUS="-";
     fi
