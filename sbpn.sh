@@ -9,7 +9,7 @@ if [ -f /sys/class/power_supply/BAT1/power_now ]; then
     fi
 
     WH=$(bc <<< 'scale=3;'$(cat /sys/class/power_supply/BAT1/power_now)/1000000)
-    if [ $WH > 0 ]; then
+    if [ $WH -gt 0 ]; then
         echo $STATUS$(bc <<< 'scale=3;'$(cat /sys/class/power_supply/BAT1/power_now)/1000000)' wh'
     else 
         echo $STATUS$(bc <<< 'scale=3;'$(cat /sys/class/power_supply/BAT0/power_now)/1000000)' wh'
