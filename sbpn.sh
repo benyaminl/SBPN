@@ -24,3 +24,5 @@ else
     fi
     echo $STATUS$(bc <<< 'scale=3;'$(cat /sys/class/power_supply/BAT0/power_now)/1000000)' wh'
 fi
+
+# test android git
